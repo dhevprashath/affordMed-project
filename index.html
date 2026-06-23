@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dell Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <h1>DELL</h1>
+            </div>
+            <h2>Inventory Management System</h2>
+        </header>
+
+        <!-- Statistics Section -->
+        <section class="statistics">
+            <div class="stat-card">
+                <h3>Total Products</h3>
+                <p id="total-products">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>In Stock</h3>
+                <p id="in-stock">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Out of Stock</h3>
+                <p id="out-of-stock">0</p>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="controls">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Enter product name to check availability...">
+                <button onclick="checkAvailability()">Search Product</button>
+                <p id="search-result" class="search-result"></p>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="main-content">
+            <!-- Add/Update Product Form -->
+            <div class="form-section">
+                <h3 id="form-title">Add New Product</h3>
+                <input type="hidden" id="product-id">
+                
+                <div class="form-group">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" placeholder="e.g., Dell XPS 15">
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-status">Stock Status</label>
+                    <select id="product-status">
+                        <option value="true">In Stock</option>
+                        <option value="false">Out of Stock</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button id="save-btn" onclick="saveProduct()">Save Product</button>
+                    <button class="btn-clear" onclick="clearInputs()">Clear Inputs</button>
+                </div>
+                
+                <!-- Feedback message -->
+                <p id="form-message" class="message"></p>
+            </div>
+
+            <!-- Inventory Table -->
+            <div class="table-section">
+                <h3>Product Inventory</h3>
+                <table id="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Stock Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory-body">
+                        <!-- Products will be injected dynamically here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
+</body>
+</html>
